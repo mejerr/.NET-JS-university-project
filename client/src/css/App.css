@@ -1,0 +1,23 @@
+@import url("./header.css");
+@import url("./homepage.css");
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.app {
+  display: flex;
+  height: 100%;
+  background: url("../assets/france.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: fadeIn 1s ease;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
