@@ -1,5 +1,6 @@
 @import url("./header.css");
 @import url("./homepage.css");
+@import url("./gallery.css");
 
 @keyframes fadeIn {
   0% {opacity:0;}
@@ -14,10 +15,24 @@
   background-position: center;
   animation: fadeIn 1s ease;
   flex-direction: column;
+  overflow: scroll;
+
+}
+
+.app::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
   display: flex;
   flex: 1;
   justify-content: center;
+}
+
+.content {
+  width: 70%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px 0;
 }

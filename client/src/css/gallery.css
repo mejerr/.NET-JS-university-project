@@ -1,0 +1,43 @@
+.gallery-container {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.gallery-image {
+  width: 150px;
+  height: 200px;
+  margin: 0 10px 10px 0;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.gallery-image:hover .gallery-image-buttons {
+  visibility: visible;
+  top: 0;
+}
+
+.gallery-image-buttons {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  visibility: hidden;
+  transition: top 0.25s ease;
+}
+
+.gallery-image-buttons .button {
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+}
+
+.gallery-image-buttons .button:first-of-type {
+  margin-right: 10px;
+}
