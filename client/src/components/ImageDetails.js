@@ -1,15 +1,14 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { addComment, deleteComment } from "../actions/comments";
-import { imagesArray } from "../constants/images";
 import { downloadImage } from "../utils/helper";
 
-const ImageDetails = ({ match: { params: { id } }}) => {
+const ImageDetails = ({ history, match: { params: { id } }}) => {
   const [commentText, setCommentText] = useState('');
   const comments = useSelector(state => state.comments.comments);
+  const images = useSelector(state => state.images.images);
   const dispatch = useDispatch();
-  console.log(comments, 123)
 
   const inputChangeHandler = (event) => {
     setCommentText(event.target.value);
@@ -29,11 +28,18 @@ const ImageDetails = ({ match: { params: { id } }}) => {
     dispatch(deleteComment(id, textId));
   }, [dispatch, id]);
 
+
+  useEffect(() => {
+    if (!images[id]) {
+      history.push(`/`);
+    }
+  }, [images, id, history]);
+
   return (
     <div className="image-details-container content">
       <div className="title">Image title</div>
-        <img className="image-file" src={imagesArray[id].imageUrl} alt="test"/>
-        <div className="download-btn" onClick={() => downloadImage(imagesArray[id].exportUrl)}><i className="fas fa-arrow-circle-down"></i></div>
+        <div className="image-file" style={{ backgroundImage: `url(${images[id]?.imageUrl})`}}/>
+        <div className="download-btn" onClick={() => downloadImage(images[id].exportUrl)}><i className="fas fa-arrow-circle-down"></i></div>
         <div className="add-comment-title">Add Comment</div>
         <div className="add-comment-container">
           <input className="add-comment-input" onChange={inputChangeHandler} />

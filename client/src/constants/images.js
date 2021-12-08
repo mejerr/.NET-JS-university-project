@@ -10,3 +10,5 @@ export const imagesArray = [{
   imageUrl: china,
   exportUrl: 'china.jpg'
 }];
+
+export const ADD_IMAGE = 'ADD_IMAGE';

@@ -12,6 +12,9 @@
 .image-file {
   width: 400px;
   height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (max-width: 600px){

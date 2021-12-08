@@ -1,33 +1,28 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
-import { imagesArray } from '../constants/images';
+import { addImage } from '../actions/images';
 import { downloadImage } from '../utils/helper';
 
 const Gallery = ({ history }) => {
-  const [images, setImages] = useState(
-    imagesArray.map(({ id, imageUrl, exportUrl }) => ({
-      id,
-      imageUrl,
-      exportUrl
-    }))
-  );
+  const dispatch = useDispatch();
+  const images = useSelector(state => state.images.images);
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
 
-      setImages([...images, {
-        id: images[images.length -1].id + 1,
+      dispatch(addImage([...images, {
+        id: images.length ? images[images.length - 1].id + 1 : 0,
         imageUrl: URL.createObjectURL(img),
         exportUrl: img.name,
-      }]);
+      }]));
     }
   };
 
   const openImageDetails = useCallback((imageId) => {
     history.push(`/gallery/images/${imageId}`);
   }, [history]);
-
 
   return (
     <div className="gallery-container content">
