@@ -1,0 +1,81 @@
+.image-details-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-details-container .title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.image-file {
+  width: 400px;
+  height: 250px;
+}
+
+.download-btn  {
+  font-size: 25px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-top: 10px;
+}
+
+.comment-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.comments-container .comment {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  padding: 0 5px;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+  width: 90%;
+  margin-right: 10px;
+  overflow-wrap: anywhere;
+}
+
+.add-comment-container {
+  display: flex;
+  width: 80%;
+  height: 25px;
+}
+
+.add-comment-input {
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.add-comment-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.add-comment-title {
+  font-size: 15px;
+  color: white;
+  width: 80%;
+  margin-bottom: 5px;
+}
+
+
+.fa-plus-circle,
+.fa-trash-alt {
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}

@@ -1,46 +1,40 @@
 import { useCallback, useState } from 'react';
-import france from '../assets/france.jpg'
-import china from '../assets/china.jpg'
-import { saveAs } from 'file-saver'
+import { withRouter } from 'react-router';
+import { imagesArray } from '../constants/images';
+import { downloadImage } from '../utils/helper';
 
-const imagesArray = [{
-  imageUrl: france,
-  exportUrl: 'france.jpg'
-}, {
-  imageUrl: china,
-  exportUrl: 'china.jpg'
-}];
-
-
-const Gallery = () => {
+const Gallery = ({ history }) => {
   const [images, setImages] = useState(
-    imagesArray.map(({ imageUrl, exportUrl }) => ({
+    imagesArray.map(({ id, imageUrl, exportUrl }) => ({
+      id,
       imageUrl,
       exportUrl
     }))
   );
-
-  const downloadImage = useCallback((image) => {
-    saveAs('image_url', `${image}`)
-  }, []);
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
 
       setImages([...images, {
+        id: images[images.length -1].id + 1,
         imageUrl: URL.createObjectURL(img),
-        exportUrl: img.name
+        exportUrl: img.name,
       }]);
     }
   };
 
+  const openImageDetails = useCallback((imageId) => {
+    history.push(`/gallery/images/${imageId}`);
+  }, [history]);
+
+
   return (
     <div className="gallery-container content">
       {images.map((image) => (
-        <div className="gallery-image" key={image.imageUrl} style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover'}}>
+        <div className="gallery-image" key={image.id} style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover'}}>
           <div className="gallery-image-buttons">
-            <div className="image-open-btn button"><i className="fas fa-info-circle"></i></div>
+            <div className="image-open-btn button" onClick={() => openImageDetails(image.id)}><i className="fas fa-info-circle"></i></div>
             <div className="image-download-btn button" onClick={() => downloadImage(image.exportUrl)}><i className="fas fa-arrow-circle-down"></i></div>
           </div>
         </div>
@@ -55,4 +49,4 @@ const Gallery = () => {
   )
 };
 
-export default Gallery;
+export default withRouter(Gallery);
