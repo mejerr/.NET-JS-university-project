@@ -14,6 +14,13 @@
   height: 250px;
 }
 
+@media (max-width: 600px){
+  .image-file {
+    width: 300px;
+    height: 150px;
+  }
+}
+
 .download-btn  {
   font-size: 25px;
   padding: 10px;

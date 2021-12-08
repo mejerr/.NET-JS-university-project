@@ -1,0 +1,22 @@
+.homepage-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fak-number {
+  text-align: center;
+  color: white;
+}
+
+.profile-picture {
+  width: 400px;
+  height: 250px;
+  margin: 20px 0;
+  background: url('../assets//personal.png') no-repeat center;
+  background-size: contain;
+}
+
+.homepage-container .description {
+  color: white;
+}
