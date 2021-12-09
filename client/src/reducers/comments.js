@@ -15,14 +15,15 @@ const reducer = (state = initialState, { type, payload = {} }) => {
       return {
         ...state,
         comments: {
-          [commentId]: [
-            ...(state.comments[commentId] ? state.comments[commentId] : Object.keys(state.comments)),
-            {
-              text: comment,
-              textId: Object.keys(state.comments).length ? state?.comments[commentId]?.length: 0
-            },
-          ]
-        }
+          ...state.comments,
+            [commentId]: [
+              ...(state?.comments[commentId] ? state.comments[commentId] : []),
+              {
+                text: comment,
+                textId: state.comments[commentId] ? state.comments[commentId].length: 0
+              },
+            ]
+          }
       };
 
     case DELETE_COMMENT:
@@ -34,6 +35,7 @@ const reducer = (state = initialState, { type, payload = {} }) => {
       return {
         ...state,
         comments: {
+          ...state.comments,
           [id]: updatedArray
         }
       };

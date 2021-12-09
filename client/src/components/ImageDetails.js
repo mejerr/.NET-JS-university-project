@@ -12,7 +12,7 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
 
   const inputChangeHandler = (event) => {
     setCommentText(event.target.value);
-  }
+  };
 
   const onAddComment = useCallback(() => {
     if (!commentText.length) {
