@@ -18,6 +18,9 @@
   position: relative;
   border-radius: 4px;
   overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .gallery-image:hover .gallery-image-buttons {

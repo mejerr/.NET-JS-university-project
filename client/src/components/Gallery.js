@@ -27,7 +27,7 @@ const Gallery = ({ history }) => {
   return (
     <div className="gallery-container content" style={{ height: !images.length && '210px'}}>
       {images.map((image) => (
-        <div className="gallery-image" key={image.id} style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover'}}>
+        <div className="gallery-image" key={image.id} style={{ backgroundImage: `url(${image.imageUrl})`}}>
           <div className="gallery-image-buttons">
             <div className="image-open-btn button" onClick={() => openImageDetails(image.id)}><i className="fas fa-info-circle"></i></div>
             <div className="image-download-btn button" onClick={() => downloadImage(image.exportUrl)}><i className="fas fa-arrow-circle-down"></i></div>
