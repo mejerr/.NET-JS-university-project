@@ -25,7 +25,7 @@ const Gallery = ({ history }) => {
   }, [history]);
 
   return (
-    <div className="gallery-container content">
+    <div className="gallery-container content" style={{ height: !images.length && '210px'}}>
       {images.map((image) => (
         <div className="gallery-image" key={image.id} style={{ backgroundImage: `url(${image.imageUrl})`, backgroundSize: 'cover'}}>
           <div className="gallery-image-buttons">
