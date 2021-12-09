@@ -1,7 +1,8 @@
-.gallery-container {
+.gallery-container.content {
   flex-wrap: wrap;
   display: flex;
   position: relative;
+  padding: 30px 30px 20px;
 }
 
 

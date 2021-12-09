@@ -5,9 +5,10 @@ import { addComment, deleteComment } from "../actions/comments";
 import { downloadImage } from "../utils/helper";
 
 const ImageDetails = ({ history, match: { params: { id } }}) => {
-  const [commentText, setCommentText] = useState('');
   const comments = useSelector(state => state.comments.comments);
+  const [commentText, setCommentText] = useState('');
   const images = useSelector(state => state.images.images);
+  const imageTitle= images && images[id].exportUrl.substr(0, images[id].exportUrl.indexOf('.'));
   const dispatch = useDispatch();
 
   const inputChangeHandler = (event) => {
@@ -35,9 +36,10 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
     }
   }, [images, id, history]);
 
+
   return (
     <div className="image-details-container content">
-      <div className="title">Image title</div>
+      <div className="title">{imageTitle}</div>
         <div className="image-file" style={{ backgroundImage: `url(${images[id]?.imageUrl})`}}/>
         <div className="download-btn" onClick={() => downloadImage(images[id].exportUrl)}><i className="fas fa-arrow-circle-down"></i></div>
         <div className="add-comment-title">Add Comment</div>
