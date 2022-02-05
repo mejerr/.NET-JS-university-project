@@ -1,6 +1,8 @@
 import {
-  ADD_COMMENT,
+  SET_COMMENTS,
+  SAVE_ADD_COMMENT,
   DELETE_COMMENT,
+  ADD_COMMENT,
 } from "../constants/comments";
 
 const initialState = {
@@ -9,8 +11,12 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload = {} }) => {
   switch (type) {
+    case SET_COMMENTS:
+      const { comments } = payload;
+    console.log(123213, comments)
+      return state.comments = comments;
     case ADD_COMMENT:
-      const { commentId, comment } = payload;
+      const {  commentId, comment  } = payload;
 
       return {
         ...state,

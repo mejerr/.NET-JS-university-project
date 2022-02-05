@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import { addComment, deleteComment } from "../actions/comments";
+import { addComment, deleteComment, initComments } from "../actions/comments";
 import { downloadImage } from "../utils/helper";
 
 const ImageDetails = ({ history, match: { params: { id } }}) => {
@@ -9,6 +9,7 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
   const comments = useSelector(state => state.comments.comments);
   const images = useSelector(state => state.images.images);
   const dispatch = useDispatch();
+  console.log(comments, 888);
 
   const inputChangeHandler = (event) => {
     setCommentText(event.target.value);
@@ -33,7 +34,9 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
     if (!images[id]) {
       history.push(`/`);
     }
-  }, [images, id, history]);
+
+    // dispatch(initComments());
+  }, [dispatch, images, id, history]);
 
   return (
     <div className="image-details-container content">
