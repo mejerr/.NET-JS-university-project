@@ -1,9 +1,9 @@
 import {
-  ADD_IMAGE
+  ADD_IMAGE, imagesArray
 } from "../constants/images";
 
 const initialState = {
-  images: [],
+  images: imagesArray
 };
 
 const reducer = (state = initialState, { type, payload = {} }) => {
