@@ -41,5 +41,21 @@ namespace WebApi.Controllers
                                   }).ToListAsync();
             return Ok(comments);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var comment = await _dbContext.Comments.FindAsync(id);
+            if (comment == null)
+            {
+                return NotFound("No record found against this Id");
+            }
+            else
+            {
+                _dbContext.Comments.Remove(comment);
+                await _dbContext.SaveChangesAsync();
+                return Ok("Record Deleted!");
+            }
+        }
     }
 }
