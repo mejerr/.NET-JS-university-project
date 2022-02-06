@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace WebApi.Models
 {
-    public class Comment
+    public class Image
     {
         public int Id { get; set; }
-        public string? Text { get; set; }
-        public int? ImageId { get; set; }
+        public string? ImageUrl { get; set; }
+        public string? ExportUrl { get; set; }
+        [NotMapped]
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

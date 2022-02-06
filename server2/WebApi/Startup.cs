@@ -48,7 +48,7 @@ namespace WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             }
             // Check if database exists
-             dbContext.Database.EnsureCreated();
+            dbContext.Database.EnsureCreated();
 
             app.UseHttpsRedirection();
 

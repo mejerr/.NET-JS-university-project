@@ -20,24 +20,26 @@ namespace WebApi.Controllers
             _dbContext = dbContext;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetComments()
-        {
-            var comments = await (from comment in _dbContext.Comments
-                                  select new
-                                  {
-                                      Id = comment.Id,
-                                      Text = comment.Text,
-                                  }).ToListAsync();
-            return Ok(comments);
-        }
-
         [HttpPost]
         public async Task<IActionResult> CreateComment([FromBody] Comment comment)
         {
             await _dbContext.Comments.AddAsync(comment);
             await _dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> CommentDetails(int imageId)
+        {
+            var comments = await (from comment in _dbContext.Comments
+                                  where comment.ImageId == imageId
+                                  select new
+                                  {
+                                      Id = comment.Id,
+                                      Text = comment.Text,
+                                      ImageId = comment.ImageId
+                                  }).ToListAsync();
+            return Ok(comments);
         }
     }
 }
