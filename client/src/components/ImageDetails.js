@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import { addComment, deleteComment, initComments } from "../actions/comments";
+import { addComment, deleteComment } from "../actions/comments";
+import { initComments } from "../actions/comments";
 import { downloadImage } from "../utils/helper";
 
 const ImageDetails = ({ history, match: { params: { id } }}) => {
@@ -36,9 +37,8 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
       history.push(`/`);
     }
 
-    // dispatch(initComments());
+    dispatch(initComments(id));
   }, [dispatch, images, id, history]);
-
 
   return (
     <div className="image-details-container content">
@@ -51,10 +51,10 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
           <div className="add-comment-btn" onClick={(event) => onAddComment(event)}><i className="fas fa-plus-circle"></i></div>
         </div>
         <div className="comments-container">
-          {comments[id]?.map(({ text, textId }) => (
-              <div key={textId} className="comment-wrapper">
+          {comments[id]?.map(({ text, id }) => (
+              <div key={id} className="comment-wrapper">
                 <div className="comment">{text}</div>
-                <div className="delete-btn" onClick={() => onDeleteComment(textId)}><i className="fas fa-trash-alt"></i></div>
+                <div className="delete-btn" onClick={() => onDeleteComment(id)}><i className="fas fa-trash-alt"></i></div>
               </div>
           ))}
         </div>

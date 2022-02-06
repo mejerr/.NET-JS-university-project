@@ -2,34 +2,27 @@ import {
   INIT_COMMENTS,
   SET_COMMENTS,
   ADD_COMMENT,
-  SAVE_ADD_COMMENT,
   DELETE_COMMENT,
 } from "../constants/comments";
 
-export const initComments = () => {
+export const initComments = (imageId) => {
   return {
-    type: INIT_COMMENTS
+    type: INIT_COMMENTS,
+    payload: { imageId }
   };
 };
 
-export const setComments = (comments) => {
+export const setComments = (comments, imageId) => {
   return {
     type: SET_COMMENTS,
-    payload: { comments }
+    payload: { comments, imageId }
   };
 };
 
-export const addComment = (commentId, comment) => {
+export const addComment = (imgId, commentText) => {
   return {
     type: ADD_COMMENT,
-    payload: { commentId, comment }
-  };
-};
-
-export const saveComment = (commentData) => {
-  return {
-    type: SAVE_ADD_COMMENT,
-    payload: { commentData },
+    payload: { imgId, commentText }
   };
 };
 

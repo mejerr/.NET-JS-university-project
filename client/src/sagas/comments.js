@@ -1,30 +1,26 @@
 import { call, put } from "redux-saga/effects";
-import { saveComment, setComments } from "../actions/comments";
+import { setComments } from "../actions/comments";
 import { addComment, initComments } from "../services/comments-service";
 
 
-export function* onInitComments(action) {
-  try {
-    const response = yield call(initComments);
-    // console.log(response, 123213);
+export function* onInitComments({ payload = {} }) {
+  const { imageId } = payload;
 
-    yield put(setComments(response.data));
+  try {
+    const response = yield call(initComments, +imageId);
+    console.log(response, 'co=mments', 54564);
+
+    yield put(setComments(response.data, imageId));
   } catch (err) {
     console.log(err);
   }
 }
 
-export function* onAddComment({ payload }) {
-  const { commentId, comment } = payload;
-  console.log('payload', payload, 123213);
-  try {
-    const response = yield call(addComment,
-      commentId,
-      comment
-    );
-    console.log('response', response);
+export function* onAddComment({ payload = {} }) {
+  const { imgId, commentText } = payload;
 
-    yield put(saveComment(response.data));
+  try {
+    yield call(addComment, +imgId, commentText);
   } catch (err) {
     console.log(err);
   }
@@ -42,11 +38,3 @@ export function* onAddComment({ payload }) {
 //     console.log(err);
 //   }
 // }
-
-
-// eslint-disable-next-line import/no-anonymous-default-export
-// export default [
-//   // takeEvery(SET_COMMENTS, onInitComments),
-//   takeEvery(ADD_COMMENT, onAddComment)
-//   // takeEvery(DELETE_COMMENT, onDeleteSingleComment)
-// ]

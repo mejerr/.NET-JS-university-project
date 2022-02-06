@@ -1,5 +1,4 @@
 export const INIT_COMMENTS = 'INIT_COMMENTS';
 export const SET_COMMENTS = 'SET_COMMENTS';
 export const ADD_COMMENT = 'ADD_COMMENT';
-export const SAVE_ADD_COMMENT = 'SAVE_ADD_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
