@@ -9,9 +9,8 @@ const ImageDetails = ({ history, match: { params: { id } }}) => {
   const comments = useSelector(state => state.comments.comments);
   const [commentText, setCommentText] = useState('');
   const images = useSelector(state => state.images.images);
-  const imageTitle= images && images[id].exportUrl.substr(0, images[id].exportUrl.indexOf('.'));
+  const imageTitle= images && images[id]?.exportUrl.substr(0, images[id]?.exportUrl.indexOf('.'));
   const dispatch = useDispatch();
-  console.log(comments, 888);
 
   const inputChangeHandler = (event) => {
     setCommentText(event.target.value);

@@ -1,6 +1,6 @@
 import { all, takeEvery } from 'redux-saga/effects';
-import { ADD_COMMENT, INIT_COMMENTS } from '../constants/comments';
-import { onAddComment, onInitComments } from './comments';
+import { ADD_COMMENT, DELETE_COMMENT, INIT_COMMENTS } from '../constants/comments';
+import { onAddComment, onDeleteSingleComment, onInitComments } from './comments';
 import { INIT_IMAGES } from '../constants/images';
 import { onInitImages } from './images';
 
@@ -19,7 +19,8 @@ import { onInitImages } from './images';
 export function* watchComments() {
   yield all([
       takeEvery(INIT_COMMENTS, onInitComments),
-      takeEvery(ADD_COMMENT, onAddComment)
+      takeEvery(ADD_COMMENT, onAddComment),
+      takeEvery(DELETE_COMMENT, onDeleteSingleComment)
   ]);
 }
 

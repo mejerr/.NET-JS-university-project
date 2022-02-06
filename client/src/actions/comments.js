@@ -26,10 +26,10 @@ export const addComment = (imgId, commentText) => {
   };
 };
 
-export const deleteComment = (commentId, textId) => {
+export const deleteComment = (imageId, textId) => {
   return {
     type: DELETE_COMMENT,
-    payload: { id: commentId, textIdDelete: textId }
+    payload: { id: imageId, textIdDelete: textId }
   };
 };
 

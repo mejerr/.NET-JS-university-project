@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { setComments } from "../actions/comments";
-import { addComment, initComments } from "../services/comments-service";
+import { addComment, initComments, deleteComment } from "../services/comments-service";
 
 
 export function* onInitComments({ payload = {} }) {
@@ -8,7 +8,6 @@ export function* onInitComments({ payload = {} }) {
 
   try {
     const response = yield call(initComments, +imageId);
-    console.log(response, 'co=mments', 54564);
 
     yield put(setComments(response.data, imageId));
   } catch (err) {
@@ -21,20 +20,20 @@ export function* onAddComment({ payload = {} }) {
 
   try {
     yield call(addComment, +imgId, commentText);
+    const response = yield call(initComments, +imgId);
+
+    yield put(setComments(response.data, imgId));
   } catch (err) {
     console.log(err);
   }
 }
 
-// export function* onDeleteSingleComment(action) {
-//   try {
-//     const newToken = localStorage.getItem("token");
-//     const response = yield call(commentService.deleteComment,
-//       action.id,
-//       newToken
-//     );
-//     yield put(commentActions.saveDeleteComment(response.data));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+export function* onDeleteSingleComment({ payload = {} }) {
+  const { textIdDelete } = payload;
+
+  try {
+    yield call(deleteComment, textIdDelete);
+  } catch (err) {
+    console.log(err);
+  }
+}
