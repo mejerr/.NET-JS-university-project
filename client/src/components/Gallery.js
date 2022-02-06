@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
-import { addImage, initImages } from '../actions/images';
+import { addImage } from '../actions/images';
 import { downloadImage } from '../utils/helper';
 
 const Gallery = ({ history }) => {
@@ -12,11 +12,11 @@ const Gallery = ({ history }) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
 
-      dispatch(addImage([...images, {
-        id: images.length ? images[images.length - 1].id + 1 : 0,
+      dispatch(addImage({
+        id: images.length ? images[images.length - 1].id + 1 : 1,
         imageUrl: URL.createObjectURL(img),
         exportUrl: img.name,
-      }]));
+      }))
     }
   };
 
@@ -24,12 +24,9 @@ const Gallery = ({ history }) => {
     history.push(`/gallery/images/${imageId}`);
   }, [history]);
 
-  useEffect(() => {
-    dispatch(initImages());
-  }, [dispatch]);
-
   return (
     <div className="gallery-container content" style={{ height: !images.length && '210px'}}>
+      {!images.length && <div style={{ color: 'white', textAlign: 'center', width: '100%' }}>No images yet</div>}
       {images.map((image) => (
         <div className="gallery-image" key={image.id} style={{ backgroundImage: `url(${image.imageUrl})`}}>
           <div className="gallery-image-buttons">

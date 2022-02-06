@@ -1,26 +1,10 @@
 import {
-  INIT_IMAGES,
-  ADD_IMAGE,
-  SET_IMAGES
+  ADD_IMAGE
 } from "../constants/images";
 
-
-export const addImage = (images) => {
+export const addImage = (image) => {
   return {
     type: ADD_IMAGE,
-    payload: { images }
-  };
-};
-
-export const initImages = () => {
-  return {
-    type: INIT_IMAGES
-  };
-};
-
-export const setImages = (imagesIds) => {
-  return {
-    type: SET_IMAGES,
-    payload: { imagesIds }
+    payload: { image }
   };
 };

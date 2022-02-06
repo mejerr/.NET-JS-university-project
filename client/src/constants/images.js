@@ -35,6 +35,4 @@ export const imagesArray = [{
   exportUrl: 'eyes.png'
 }];
 
-export const INIT_IMAGES = 'INIT_IMAGES';
-export const SET_IMAGES = 'SET_IMAGES';
 export const ADD_IMAGE = 'ADD_IMAGE';

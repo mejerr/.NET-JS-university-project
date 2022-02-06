@@ -1,28 +1,20 @@
 import {
   ADD_IMAGE,
-  imagesArray,
-  SET_IMAGES
+  imagesArray
 } from "../constants/images";
 
 const initialState = {
-  images: []
+  images: imagesArray
 };
 
 const reducer = (state = initialState, { type, payload = {} }) => {
   switch (type) {
-    case SET_IMAGES:
-      const { imagesIds } = payload;
-
-      return {
-        ...state,
-        images: imagesIds
-      };
     case ADD_IMAGE:
-      const { images } = payload;
+      const { image } = payload;
 
       return {
         ...state,
-        images
+        images: [...state.images, image]
       };
     default:
       return state;

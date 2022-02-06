@@ -70,11 +70,21 @@
     width: 30px;
     height: 30px;
   }
+
+  .gallery-image {
+    width: 200px;
+    height: 250px;
+  }
 }
 
 @media (max-width: 500px) {
   .upload-btn {
     right: -40px !important;
+  }
+
+  .gallery-image {
+    width: 300px;
+    height: 350px;
   }
 }
 
