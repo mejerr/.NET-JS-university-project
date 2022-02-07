@@ -6,31 +6,31 @@ import flowers from '../assets/flowers.png';
 import eyes from '../assets/eyes.png';
 
 export const imagesArray = [{
-  id: 0,
+  id: 1,
   imageUrl: snow,
   exportUrl: 'snow.png'
 }, {
-  id: 1,
+  id: 2,
   imageUrl: china,
   exportUrl: 'china.jpg'
 },
 {
-  id: 2,
+  id: 3,
   imageUrl: boy,
   exportUrl: 'boy.png'
 },
 {
-  id: 3,
+  id: 4,
   imageUrl: neon,
   exportUrl: 'neon.png'
 },
 {
-  id: 4,
+  id: 5,
   imageUrl: flowers,
   exportUrl: 'flowers.png'
 },
 {
-  id: 5,
+  id: 6,
   imageUrl: eyes,
   exportUrl: 'eyes.png'
 }];
