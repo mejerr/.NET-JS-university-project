@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebApi
 {
@@ -57,8 +58,7 @@ namespace WebApi
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
-            //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins seperated with comma
-            .SetIsOriginAllowed(origin => true));// Allow any origin);
+            .SetIsOriginAllowed(origin => true));
 
             app.UseAuthorization();
 
