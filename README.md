@@ -10,6 +10,7 @@ Small university project written with C# as backend and React as frontend techno
 1. Go to server2/WebApi folder and start the application from the solution **"WebApi.sln"**.
       - Run the app with the green play button and go back to the folder structure
       ![break](client/src/assets/documentation/start-solution.png)
+      - Local DBContext is used for DataBase
       - **If you go to the following link: https://localhost:3005/swagger/index.html you can use swagger to send requests instead of React client**
 
 
@@ -47,6 +48,9 @@ Small university project written with C# as backend and React as frontend techno
    <br>
 
       - Image comments
+         - comments are saved in the DataBase
+
+   <br>
 
    ![break](client/src/assets/documentation/download-file.png)
    <br>
