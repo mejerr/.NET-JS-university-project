@@ -49,3 +49,9 @@
     margin: 0 40px 0 auto;
   }
 }
+
+.username {
+  color: white;
+  margin-right: 10px;
+  text-align: center;
+}
