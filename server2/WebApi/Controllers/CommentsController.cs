@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Data;
 using WebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers
 {
@@ -20,6 +16,7 @@ namespace WebApi.Controllers
             _dbContext = dbContext;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateComment([FromBody] Comment comment)
         {
@@ -28,6 +25,7 @@ namespace WebApi.Controllers
             return StatusCode(StatusCodes.Status201Created);
         }
 
+        [Authorize]
         [HttpGet()]
         public async Task<IActionResult> CommentDetails(int imageId)
         {

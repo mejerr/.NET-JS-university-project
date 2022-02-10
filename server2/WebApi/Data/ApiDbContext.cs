@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebApi.Data
 {
@@ -16,5 +12,6 @@ namespace WebApi.Data
 
         }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

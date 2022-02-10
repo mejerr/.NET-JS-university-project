@@ -58,3 +58,4 @@ C:\Users\georgi.radev\Desktop\Personal\ghub-nbu-projects\nbu-c--js-project\serve
 C:\Users\georgi.radev\Desktop\Personal\ghub-nbu-projects\nbu-c--js-project\server2\WebApi\obj\Debug\net6.0\WebApi.pdb
 C:\Users\georgi.radev\Desktop\Personal\ghub-nbu-projects\nbu-c--js-project\server2\WebApi\obj\Debug\net6.0\WebApi.genruntimeconfig.cache
 C:\Users\georgi.radev\Desktop\Personal\ghub-nbu-projects\nbu-c--js-project\server2\WebApi\obj\Debug\net6.0\WebApi.csproj.AssemblyReference.cache
+C:\Users\georgi.radev\Desktop\Personal\ghub-nbu-projects\nbu-c--js-project\server2\WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
