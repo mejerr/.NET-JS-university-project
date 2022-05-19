@@ -1,5 +1,5 @@
 # NBU C# & JavaScript project
-Project for my NBU course Client-server technologies
+Project for my NBU course client-server technologies
 ## Description
 
 Small university project written with C# as backend and React as frontend technologie. Application for reading my biography, switching between pages, adding new images, dowloading them and adding comments underneath.
